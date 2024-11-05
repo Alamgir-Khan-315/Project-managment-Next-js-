@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text {
+  @apply text-blue-500;
+}
+
+.text-heading {
+  @apply text-3xl md:text-6xl text-center;
+}
+
+.text-title {
+  @apply text-2xl md:text-4xl;
+}
+
+.btn-gray {
+  @apply border border-gray-500   px-4 py-2 rounded-full text-gray-500 cursor-pointer shadow-lg
+  hover:bg-gray-500 hover:text-white hover:scale-105 transition-all;
+}
+.btn-blue {
+  @apply bg-blue-500  px-4 py-2 rounded-full cursor-pointer shadow-lg
+  hover:bg-blue-700 hover:scale-105 transition-all;
+}
+
+/*  */
+.lrg {
+  @apply md:w-[70vw] mx-auto;
+}
+
+/* work-2 */
+.workHeader-active {
+  @apply text-blue-500 cursor-pointer sm:text-sm     p-2 md:px-4 md:py-2 bg-blue-200 rounded-full 
+  hover:text-blue-700 hover:scale-105 transition-all;
+}
+.workHeader-inactive {
+  @apply cursor-pointer sm:text-sm                      md:px-4 md:py-2 md:bg-gray-200 rounded-full 
+  hover:text-gray-700 hover:scale-105 transition-all;
+}

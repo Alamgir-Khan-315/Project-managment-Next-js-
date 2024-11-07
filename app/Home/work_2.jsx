@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 
-const work_2 = (prop) => {
+const Work_2 = (prop) => {
   const [workHeader, setworkHeader] = useState(1)
   const items1 = [
     { text: "Operationize goals", className: "text-title mt-[2rem]" },
@@ -99,4 +99,4 @@ const work_2 = (prop) => {
   )
 }
 
-export default work_2
+export default Work_2

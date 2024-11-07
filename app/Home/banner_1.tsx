@@ -1,6 +1,9 @@
 import React from "react";
+interface BannerProps {
+  Title: string;
+}
 
-const banner = (prop: any) => {
+const banner: React.FC<BannerProps> = ({ Title }) => {
   return (
     <div>
       <div className="container text mx-auto pt-[5rem] px-3">
@@ -19,7 +22,7 @@ const banner = (prop: any) => {
         </div>
 
         <h1 className="text-center mt-[2rem]">
-          85% of fortune 100 companies choose {prop.Title}
+          85% of fortune 100 companies choose {Title}
         </h1>
       </div>
     </div>

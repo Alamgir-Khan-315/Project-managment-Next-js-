@@ -1,12 +1,15 @@
 import Link from "next/link";
+interface BannerProps {
+  Title: string;
+}
 
-const nav = (prop : any) => {
+const nav: React.FC<BannerProps> = ({ Title }) => {
   return (
     <div>
       <nav className="p-2 mt-[0.5rem]">
         <div className="nav flex justify-between items-center">
           <Link href="/">
-            <div className="logo text-2xl md:text-3xl">{prop.Title} Logo</div>
+            <div className="logo text-2xl md:text-3xl">{Title} Logo</div>
           </Link>
           <div className="nav mr-[2rem] flex gap-4 md:gap-10 items-center">
             <div className="icon">icon</div>

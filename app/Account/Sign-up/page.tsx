@@ -2,10 +2,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-const page = (prop: any) => {
+const Page = () => {
   const Title = "Web title";
   const [Page, setPage] = useState(1);
-  const [userData, setuserData] = useState({
+  const [UserData, setUserData] = useState({
     name: "",
     img: "",
     role: "",
@@ -76,13 +76,15 @@ const page = (prop: any) => {
                 className="absolute right-0 bottom-0 p-2 py-1 rounded-[50px] bg-red-300">
                 c
               </label>
-              <img src={userData.img} alt="img" />
+              {UserData.img ? (
+                <img src={UserData.img} alt="Img Description" />
+              ) : null}
               <input
                 type="file"
                 id="Avatar_png"
                 className="hidden"
                 onChange={(e) =>
-                  setuserData({ ...userData, img: e.target.value })
+                  setUserData({ ...UserData, img: e.target.value })
                 }
               />
             </div>
@@ -90,9 +92,9 @@ const page = (prop: any) => {
               <h1>What`s your full name ?</h1>
               <input
                 type="text"
-                value={userData.name}
+                value={UserData.name}
                 onChange={(e) =>
-                  setuserData({ ...userData, name: e.target.value })
+                  setUserData({ ...UserData, name: e.target.value })
                 }
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
@@ -139,7 +141,7 @@ const page = (prop: any) => {
             <input
               type="text"
               onChange={(e) =>
-                setuserData({ ...userData, role: e.target.value })
+                setUserData({ ...UserData, role: e.target.value })
               }
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
@@ -148,7 +150,7 @@ const page = (prop: any) => {
             <input
               type="text"
               onChange={(e) =>
-                setuserData({ ...userData, role_discription: e.target.value })
+                setUserData({ ...UserData, role_discription: e.target.value })
               }
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
@@ -193,8 +195,8 @@ const page = (prop: any) => {
             <input
               type="text"
               onChange={(e) =>
-                setuserData({
-                  ...userData,
+                setUserData({
+                  ...UserData,
                   project_discription: e.target.value,
                 })
               }
@@ -236,8 +238,8 @@ const page = (prop: any) => {
               <input
                 type="text"
                 onChange={(e) =>
-                  setuserData({
-                    ...userData,
+                  setUserData({
+                    ...UserData,
                     to_do: e.target.value,
                   })
                 }
@@ -247,8 +249,8 @@ const page = (prop: any) => {
               <input
                 type="text"
                 onChange={(e) =>
-                  setuserData({
-                    ...userData,
+                  setUserData({
+                    ...UserData,
                     doing: e.target.value,
                   })
                 }
@@ -258,8 +260,8 @@ const page = (prop: any) => {
               <input
                 type="text"
                 onChange={(e) =>
-                  setuserData({
-                    ...userData,
+                  setUserData({
+                    ...UserData,
                     done: e.target.value,
                   })
                 }
@@ -308,8 +310,8 @@ const page = (prop: any) => {
               <input
                 type="text"
                 onChange={(e) =>
-                  setuserData({
-                    ...userData,
+                  setUserData({
+                    ...UserData,
                     teammate_1: e.target.value,
                   })
                 }
@@ -319,8 +321,8 @@ const page = (prop: any) => {
               <input
                 type="text"
                 onChange={(e) =>
-                  setuserData({
-                    ...userData,
+                  setUserData({
+                    ...UserData,
                     teammate_2: e.target.value,
                   })
                 }
@@ -330,8 +332,8 @@ const page = (prop: any) => {
               <input
                 type="text"
                 onChange={(e) =>
-                  setuserData({
-                    ...userData,
+                  setUserData({
+                    ...UserData,
                     teammate_3: e.target.value,
                   })
                 }
@@ -360,19 +362,19 @@ const page = (prop: any) => {
       )}
 
       {/* display */}
-      {userData.name}
-      {userData.img}
-      {userData.role}
-      {userData.role_discription}
-      {userData.project_discription}
-      {userData.to_do}
-      {userData.doing}
-      {userData.done}
-      {userData.teammate_1}
-      {userData.teammate_2}
-      {userData.teammate_3}
+      {UserData.name}
+      {UserData.img}
+      {UserData.role}
+      {UserData.role_discription}
+      {UserData.project_discription}
+      {UserData.to_do}
+      {UserData.doing}
+      {UserData.done}
+      {UserData.teammate_1}
+      {UserData.teammate_2}
+      {UserData.teammate_3}
     </div>
   );
 };
 
-export default page;
+export default Page;

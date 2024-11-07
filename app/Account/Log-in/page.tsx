@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 
-const page = () => {
-  let Title = "title";
+const Page = () => {
+  const Title = "title";
   return (
     <div className="h-screen w-screen relative">
       <Link href="/">Home</Link>
@@ -50,4 +50,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

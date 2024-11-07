@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const nav = (prop) => {
+const nav = (prop : any) => {
   return (
     <div>
       <nav className="p-2 mt-[0.5rem]">
@@ -14,7 +14,9 @@ const nav = (prop) => {
             <Link href={"/Account/Log-in"}>
               <div className="btn-blue text-white font-semibold">Log in</div>
             </Link>
-            <div className="btn-gray hidden md:flex">Get started</div>
+            <Link href={"/Account/Sign-up"}>
+              <div className="btn-gray hidden md:flex">Get started</div>
+            </Link>
           </div>
         </div>
       </nav>

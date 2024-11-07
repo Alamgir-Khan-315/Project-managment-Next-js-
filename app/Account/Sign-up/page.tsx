@@ -2,14 +2,21 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-const page = () => {
-  const Title = "App name";
+const page = (prop: any) => {
+  const Title = "Web title";
   const [Page, setPage] = useState(1);
   const [userData, setuserData] = useState({
     name: "",
     img: "",
     role: "",
-    discription: "",
+    role_discription: "",
+    project_discription: "",
+    to_do: "",
+    doing: "",
+    done: "",
+    teammate_1: "",
+    teammate_2: "",
+    teammate_3: "",
   });
   function handleSubmit() {
     alert("User Added");
@@ -57,7 +64,7 @@ const page = () => {
           className="main-body container mx-auto   p-6     h-fit
            md:w-[70%] mt-[1rem]
             2xl:w-[50%] ">
-          <h1 className="text-2xl">Welcome to --------</h1>
+          <h1 className="text-2xl">Welcome to {Title}</h1>
           <p className="mt-5 text-sm">
             You`re signing up as creating newkarachi@gmail.com.
           </p>
@@ -69,8 +76,15 @@ const page = () => {
                 className="absolute right-0 bottom-0 p-2 py-1 rounded-[50px] bg-red-300">
                 c
               </label>
-              <img src="" alt="" />
-              <input type="file" id="Avatar_png" className="hidden" />
+              <img src={userData.img} alt="img" />
+              <input
+                type="file"
+                id="Avatar_png"
+                className="hidden"
+                onChange={(e) =>
+                  setuserData({ ...userData, img: e.target.value })
+                }
+              />
             </div>
             <div className="name w-[50%] mt-5">
               <h1>What`s your full name ?</h1>
@@ -95,15 +109,12 @@ const page = () => {
           {/* last row */}
           <div className="login mt-5">
             <p>
-              Wrong account?{" "}
+              Wrong account?
               <Link
                 href="/Account/Log-in"
-                onChange={(e) => {
-                  setuserData({ ...userData, name: e.target.value });
-                }}
                 className="text-blue-500 underline cursor-pointer">
                 <span>Log in</span>
-              </Link>{" "}
+              </Link>
               instead
             </p>
           </div>
@@ -137,7 +148,7 @@ const page = () => {
             <input
               type="text"
               onChange={(e) =>
-                setuserData({ ...userData, discription: e.target.value })
+                setuserData({ ...userData, role_discription: e.target.value })
               }
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
@@ -181,6 +192,12 @@ const page = () => {
             <h1>What`s somthing you and your team are currently working on?</h1>
             <input
               type="text"
+              onChange={(e) =>
+                setuserData({
+                  ...userData,
+                  project_discription: e.target.value,
+                })
+              }
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
           </div>
@@ -218,16 +235,34 @@ const page = () => {
             <div className="todo mt-15 grid gap-1">
               <input
                 type="text"
+                onChange={(e) =>
+                  setuserData({
+                    ...userData,
+                    to_do: e.target.value,
+                  })
+                }
                 placeholder="To do"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
+                onChange={(e) =>
+                  setuserData({
+                    ...userData,
+                    doing: e.target.value,
+                  })
+                }
                 placeholder="Doing"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
+                onChange={(e) =>
+                  setuserData({
+                    ...userData,
+                    done: e.target.value,
+                  })
+                }
                 placeholder="Done"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
@@ -272,16 +307,34 @@ const page = () => {
             <div className="todo mt-15 grid gap-1">
               <input
                 type="text"
+                onChange={(e) =>
+                  setuserData({
+                    ...userData,
+                    teammate_1: e.target.value,
+                  })
+                }
                 placeholder="Teammate`s email"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
+                onChange={(e) =>
+                  setuserData({
+                    ...userData,
+                    teammate_2: e.target.value,
+                  })
+                }
                 placeholder="Teammate`s email"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
+                onChange={(e) =>
+                  setuserData({
+                    ...userData,
+                    teammate_3: e.target.value,
+                  })
+                }
                 placeholder="Teammate`s email"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
@@ -305,6 +358,19 @@ const page = () => {
           </div>
         </div>
       )}
+
+      {/* display */}
+      {userData.name}
+      {userData.img}
+      {userData.role}
+      {userData.role_discription}
+      {userData.project_discription}
+      {userData.to_do}
+      {userData.doing}
+      {userData.done}
+      {userData.teammate_1}
+      {userData.teammate_2}
+      {userData.teammate_3}
     </div>
   );
 };

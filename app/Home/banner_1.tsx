@@ -1,6 +1,6 @@
 import React from "react";
 
-const banner = (prop) => {
+const banner = (prop: any) => {
   return (
     <div>
       <div className="container text mx-auto pt-[5rem] px-3">

@@ -1,25 +1,23 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
+import image from "@/public/Screenshot (304).png";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Page = () => {
   const Title = "Web title";
   const [Page, setPage] = useState(1);
-  const [UserData, setUserData] = useState({
-    name: "",
-    img: "",
-    role: "",
-    role_discription: "",
-    project_discription: "",
-    to_do: "",
-    doing: "",
-    done: "",
-    teammate_1: "",
-    teammate_2: "",
-    teammate_3: "",
-  });
+
+  const [form, setform] = useState([]);
+  const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setform({ ...form, [event.target.name]: event.target.value });
+  };
+
   function handleSubmit() {
     alert("User Added");
+    // localStorage.clear();
+    localStorage.setItem("user", JSON.stringify(form));
   }
 
   return (
@@ -73,29 +71,43 @@ const Page = () => {
             <div className="img w-32 h-32 relative     border-2 border-gray-300 rounded-[50%]">
               <label
                 htmlFor="Avatar_png"
-                className="absolute right-0 bottom-0 p-2 py-1 rounded-[50px] bg-red-300">
+                className="absolute z-10 right-0 bottom-0 p-2 py-1 rounded-[50px] bg-red-300">
                 c
               </label>
-              {UserData.img ? (
-                <img src={UserData.img} alt="Img Description" />
-              ) : null}
+
               <input
                 type="file"
+                accept="image/jpeg , image/png , image/jpg"
                 id="Avatar_png"
                 className="hidden"
-                onChange={(e) =>
-                  setUserData({ ...UserData, img: e.target.value })
-                }
+                name="Image"
+                onChange={inputHandler}
               />
+
+              {form?.Image ? (
+                <img
+                  src={form.Image || "placeholder.jpg"}
+                  className="img w-32 h-32 relative z-1 text-center bg-blue-200 rounded-[50%]"
+                  alt="Img Description"
+                />
+              ) : (
+                <img
+                  src={image}
+                  className="img w-32 h-32 relative z-1 text-center bg-blue-200 rounded-[50%]"
+                  alt="Img"
+                />
+              )}
             </div>
             <div className="name w-[50%] mt-5">
               <h1>What`s your full name ?</h1>
               <input
                 type="text"
-                value={UserData.name}
-                onChange={(e) =>
-                  setUserData({ ...UserData, name: e.target.value })
-                }
+                value={form[0]}
+                // onChange={(e) =>
+                //   setUserData({ ...UserData, name: e.target.value })
+                // }
+                name="name"
+                onChange={inputHandler}
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
             </div>
@@ -140,18 +152,22 @@ const Page = () => {
             <h1>What`s your role ?</h1>
             <input
               type="text"
-              onChange={(e) =>
-                setUserData({ ...UserData, role: e.target.value })
-              }
+              // onChange={(e) =>
+              //   setUserData({ ...UserData, role: e.target.value })
+              // }
+              name="role"
+              onChange={inputHandler}
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
 
             <h1 className="mt-5">What function describes your work ?</h1>
             <input
               type="text"
-              onChange={(e) =>
-                setUserData({ ...UserData, role_discription: e.target.value })
-              }
+              // onChange={(e) =>
+              //   setUserData({ ...UserData, role_discription: e.target.value })
+              // }
+              name="role_discription"
+              onChange={inputHandler}
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
           </div>
@@ -194,12 +210,14 @@ const Page = () => {
             <h1>What`s somthing you and your team are currently working on?</h1>
             <input
               type="text"
-              onChange={(e) =>
-                setUserData({
-                  ...UserData,
-                  project_discription: e.target.value,
-                })
-              }
+              // onChange={(e) =>
+              //   setUserData({
+              //     ...UserData,
+              //     project_discription: e.target.value,
+              //   })
+              // }
+              name="project_discription"
+              onChange={inputHandler}
               className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
             />
           </div>
@@ -237,34 +255,40 @@ const Page = () => {
             <div className="todo mt-15 grid gap-1">
               <input
                 type="text"
-                onChange={(e) =>
-                  setUserData({
-                    ...UserData,
-                    to_do: e.target.value,
-                  })
-                }
+                // onChange={(e) =>
+                //   setUserData({
+                //     ...UserData,
+                //     to_do: e.target.value,
+                //   })
+                // }
+                name="to_do"
+                onChange={inputHandler}
                 placeholder="To do"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
-                onChange={(e) =>
-                  setUserData({
-                    ...UserData,
-                    doing: e.target.value,
-                  })
-                }
+                // onChange={(e) =>
+                //   setUserData({
+                //     ...UserData,
+                //     doing: e.target.value,
+                //   })
+                // }
+                name="doing"
+                onChange={inputHandler}
                 placeholder="Doing"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
-                onChange={(e) =>
-                  setUserData({
-                    ...UserData,
-                    done: e.target.value,
-                  })
-                }
+                // onChange={(e) =>
+                //   setUserData({
+                //     ...UserData,
+                //     done: e.target.value,
+                //   })
+                // }
+                name="done"
+                onChange={inputHandler}
                 placeholder="Done"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
@@ -309,34 +333,35 @@ const Page = () => {
             <div className="todo mt-15 grid gap-1">
               <input
                 type="text"
-                onChange={(e) =>
-                  setUserData({
-                    ...UserData,
-                    teammate_1: e.target.value,
-                  })
-                }
+                // onChange={(e) =>
+                //   setUserData({
+                //     ...UserData,
+                //     teammate_1: e.target.value,
+                //   })
+                // }
+                name="teammate_1"
+                onChange={inputHandler}
                 placeholder="Teammate`s email"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
-                onChange={(e) =>
-                  setUserData({
-                    ...UserData,
-                    teammate_2: e.target.value,
-                  })
-                }
+                // onCha
+                name="teammate_2"
+                onChange={inputHandler}
                 placeholder="Teammate`s email"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
               <input
                 type="text"
-                onChange={(e) =>
-                  setUserData({
-                    ...UserData,
-                    teammate_3: e.target.value,
-                  })
-                }
+                // onChange={(e) =>
+                //   setUserData({
+                //     ...UserData,
+                //     teammate_3: e.target.value,
+                //   })
+                // }
+                name="teammate_3"
+                onChange={inputHandler}
                 placeholder="Teammate`s email"
                 className="p-1 px-4 mt-2 w-[25rem] border rounded-lg"
               />
@@ -362,17 +387,17 @@ const Page = () => {
       )}
 
       {/* display */}
-      {UserData.name}
-      {UserData.img}
-      {UserData.role}
-      {UserData.role_discription}
-      {UserData.project_discription}
-      {UserData.to_do}
-      {UserData.doing}
-      {UserData.done}
-      {UserData.teammate_1}
-      {UserData.teammate_2}
-      {UserData.teammate_3}
+      {form.name}
+      {form.Image}
+      {form.role}
+      {form.role_discription}
+      {form.project_discription}
+      {form.to_do}
+      {form.doing}
+      {form.done}
+      {form.teammate_1}
+      {form.teammate_2}
+      {form.teammate_3}
     </div>
   );
 };

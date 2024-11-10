@@ -1,10 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import image from "@/public/Screenshot (304).png";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-
+// import image from "@/public/Screenshot (304).png";
 const Page = () => {
   const Title = "Web title";
   const [Page, setPage] = useState(1);
@@ -80,13 +77,13 @@ const Page = () => {
                 accept="image/jpeg , image/png , image/jpg"
                 id="Avatar_png"
                 className="hidden"
-                name="Image"
+                name="img"
                 onChange={inputHandler}
               />
 
-              {form?.Image ? (
+              {/* {form.img ? (
                 <img
-                  src={form.Image || "placeholder.jpg"}
+                  src={form.img || "placeholder.jpg"}
                   className="img w-32 h-32 relative z-1 text-center bg-blue-200 rounded-[50%]"
                   alt="Img Description"
                 />
@@ -96,7 +93,7 @@ const Page = () => {
                   className="img w-32 h-32 relative z-1 text-center bg-blue-200 rounded-[50%]"
                   alt="Img"
                 />
-              )}
+              )} */}
             </div>
             <div className="name w-[50%] mt-5">
               <h1>What`s your full name ?</h1>
@@ -386,7 +383,7 @@ const Page = () => {
         </div>
       )}
 
-      {/* display */}
+      {/* display
       {form.name}
       {form.Image}
       {form.role}
@@ -397,7 +394,7 @@ const Page = () => {
       {form.done}
       {form.teammate_1}
       {form.teammate_2}
-      {form.teammate_3}
+      {form.teammate_3} */}
     </div>
   );
 };

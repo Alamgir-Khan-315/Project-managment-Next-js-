@@ -1,9 +1,9 @@
 import React from "react";
-interface BannerProps {
+interface Props {
   Title: string;
 }
 
-const banner: React.FC<BannerProps> = ({ Title }) => {
+const banner: React.FC<Props> = ({ Title }) => {
   return (
     <div>
       <div className="container text mx-auto pt-[5rem] px-3">

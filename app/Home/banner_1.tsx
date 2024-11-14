@@ -6,7 +6,7 @@ interface Props {
 const banner: React.FC<Props> = ({ Title }) => {
   return (
     <div>
-      <div className="container text mx-auto pt-[5rem] px-3">
+      <div className="container text mx-auto pt-[9rem] px-3">
         <h1 className="text-heading">Where works connexts </h1>
         <h1 className="text-center font-2xl mt-[1rem]">
           Connect work to goal automate workflows with AI as your teammate.

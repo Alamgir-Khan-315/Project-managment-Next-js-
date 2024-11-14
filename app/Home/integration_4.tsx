@@ -14,7 +14,7 @@ const Integration_4 = () => {
   return (
     <div className="container text-black mx-auto pt-[2rem] p-4">
       <h1 className="text-heading mt-[3rem]">Connect over 300+ integrations</h1>
-      <p className="text-2xl m-[2rem] md:text-3xl">
+      <p className="text-2xl m-[3rem] md:text-3xl">
         Ensure your companys data is completely secure and that you are in
         compliance with the latest standards
       </p>

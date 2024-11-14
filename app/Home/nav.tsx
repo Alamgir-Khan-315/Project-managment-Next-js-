@@ -6,7 +6,7 @@ interface BannerProps {
 const nav: React.FC<BannerProps> = ({ Title }) => {
   return (
     <div>
-      <nav className="p-2 mt-[0.5rem]">
+      <nav className="fixed w-[100vw] bg-white   p-[1rem]">
         <div className="nav flex justify-between items-center">
           <Link href="/">
             <div className="logo text-2xl md:text-3xl">{Title} Logo</div>

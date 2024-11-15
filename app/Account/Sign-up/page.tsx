@@ -1,9 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import image from "@/public/Screenshot (304).png";
 const Page = () => {
-  const Title = "Web title";
+  const [Title, setTitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("Title");
+    setTitle(storedToken);
+  }, []);
+
   const [Page, setPage] = useState(1);
 
   const [form, setform] = useState([]);

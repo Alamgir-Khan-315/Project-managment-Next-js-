@@ -45,6 +45,17 @@ body {
   @apply cursor-pointer sm:text-sm                      md:px-4 md:py-2 md:bg-gray-200 rounded-full 
   hover:text-gray-700 hover:scale-105 transition-all;
 }
+
+/*  */
+.icons {
+  @apply bg-black p-2 text-white rounded-full
+  hover:bg-slate-100 hover:text-black transition-all;
+}
+
+.dark_secondary { @apply bg-gray-700 text-white;}
+
+.bright_secondary { @apply bg-slate-100;}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

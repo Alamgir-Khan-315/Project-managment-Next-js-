@@ -1,8 +1,15 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Page = () => {
-  const Title = "title";
+  const [Title, setTitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("Title");
+    setTitle(storedToken);
+  }, []);
+
   return (
     <div className="h-screen w-screen relative">
       <Link href="/">Home</Link>
@@ -19,9 +26,11 @@ const Page = () => {
             type="email"
             placeholder="Name@company.com"
           />
-          <div className="btn black text-center text-white px-4 bg-black font-bold p-2">
-            Continue
-          </div>
+          <Link href="/Dashboard">
+            <div className="btn black text-center text-white px-4 bg-black font-bold p-2 cursor-pointer">
+              Continue
+            </div>
+          </Link>
         </div>
         <p className="mt-5 text-sm">
           By signing up, i agree to the {Title}{" "}

@@ -1,12 +1,14 @@
+"use client";
 import Nav from "./Home/nav";
 import Main from "./Home/main";
+import { useEffect } from "react";
 
 export default function Home() {
   const Title = "Web title";
-  // function TitletoLocal() {
-  //   localStorage.setItem("Title", Title);
-  // }
-  // TitletoLocal();
+  useEffect(() => {
+    localStorage.setItem("Title", Title);
+  }, []);
+
   return (
     <div>
       <Nav Title={Title} />

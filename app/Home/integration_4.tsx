@@ -2,13 +2,13 @@
 import React from "react";
 // import Autoplay from "embla-carousel-autoplay";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel";
 
 const Integration_4 = () => {
   return (
@@ -22,7 +22,7 @@ const Integration_4 = () => {
       <div className="btn-black m-[2rem] w-fit">See all integration</div>
 
       {/*  */}
-      <Carousel className="mt-[3rem]">
+      {/* <Carousel className="mt-[3rem]">
         <CarouselContent>
           <CarouselItem>
             1<div className="item"></div>
@@ -32,7 +32,7 @@ const Integration_4 = () => {
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
-      </Carousel>
+      </Carousel> */}
     </div>
   );
 };

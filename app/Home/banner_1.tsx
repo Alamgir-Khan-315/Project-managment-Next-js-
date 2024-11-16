@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+
 interface Props {
   Title: string;
 }
@@ -18,7 +20,7 @@ const banner: React.FC<Props> = ({ Title }) => {
         </div>
 
         <div className="img bg-blue-500 rounded-lg h-[40vh] md:h-[60vh] lrg mt-[5rem]">
-          <img src="" alt="" />
+          <Image src="" alt="Img" />
         </div>
 
         <h1 className="text-center mt-[2rem]">

@@ -56,7 +56,7 @@ const Footer: React.FC<Props> = ({ Title }) => {
               </p>
             ))}
           </div>
-          <div className="3 hidden md:flex">
+          <div className="3 hidden md:flex md:flex-col">
             <h1 className="font-semibold">Use cases</h1>
             {Items_1.map((d, i) => (
               <p className="my-[1rem] cursor-pointer text-amber-100" key={i}>
@@ -72,7 +72,7 @@ const Footer: React.FC<Props> = ({ Title }) => {
               </p>
             ))}
           </div>
-          <div className="5 hidden md:flex">
+          <div className="5 hidden md:flex md:flex-col">
             <h1 className="font-semibold">Resources</h1>
             {Items_1.map((d, i) => (
               <p className="my-[1rem] cursor-pointer text-amber-100" key={i}>
@@ -116,7 +116,7 @@ const Footer: React.FC<Props> = ({ Title }) => {
           </div>
         </div>
 
-        <div className="4 md:flex gap-2">
+        <div className="4 md:flex items-center gap-2">
           <div className="playstore">
             <Image src={Play_store} alt="Icon" width={100} height={50} />
           </div>

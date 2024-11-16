@@ -1,27 +1,19 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MdMenu } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
-  const [Title, setTitle] = useState<string | null>(null);
   const [Menu_toggle, setMenu_toggle] = useState(false);
-
-  function Menu_toggle_function() {
-    setMenu_toggle(!Menu_toggle);
-    localStorage.setItem("Menu_toggle", Menu_toggle);
-  }
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("Title");
-    setTitle(storedToken);
-  }, []);
 
   return (
     <div className="w-[100vw] dark_secondary px-2 flex items-center justify-between">
       <div className="Menu py-4 flex gap-2">
-        <MdMenu className="text-2xl" onClick={Menu_toggle_function} />
-        {Title}
+        <MdMenu
+          className="text-2xl"
+          onClick={() => setMenu_toggle(!Menu_toggle)}
+        />
+        {Menu_toggle}
       </div>
       <div className="search md:w-[30%] flex items-center rounded-full relative bg-gray-500">
         <input
